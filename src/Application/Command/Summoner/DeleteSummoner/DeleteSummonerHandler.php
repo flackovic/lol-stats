@@ -9,25 +9,27 @@
 namespace App\Application\Command\Summoner\DeleteSummoner;
 
 
-use App\Infrastructure\Summoner\Repository\SummonerRepository;
+use App\Domain\Event\Summoner\SummonerDeletedEvent;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class DeleteSummonerHandler
 {
-    private $summonerRepository;
     private $em;
+    private $dispatcher;
 
-    public function __construct(SummonerRepository $summonerRepository, EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, EventDispatcherInterface $dispatcher)
     {
-        $this->summonerRepository = $summonerRepository;
         $this->em = $em;
+        $this->dispatcher = $dispatcher;
     }
 
     public function __invoke(DeleteSummonerCommand $command)
     {
-        $this->em->remove($command->getSummoner());
+        $summoner = $command->getSummoner();
+        $this->em->remove($summoner);
         $this->em->flush();
 
-        dd('asd');
+        $this->dispatcher->dispatch(SummonerDeletedEvent::NAME, new SummonerDeletedEvent($summoner));
     }
 }

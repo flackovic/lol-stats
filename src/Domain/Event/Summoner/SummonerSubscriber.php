@@ -16,11 +16,17 @@ class SummonerSubscriber implements EventSubscriberInterface
     {
         return [
             SummonerCreatedEvent::NAME => 'onSummonerCreated',
+            SummonerDeletedEvent::NAME => 'onSummonerDeleted',
         ];
     }
 
     public function onSummonerCreated(SummonerCreatedEvent $event)
     {
-        dd($event);
+        dd('Summoner created: ' . $event->getSummoner()->getName());
+    }
+
+    public function onSummonerDeleted(SummonerDeletedEvent $event)
+    {
+        dd('Summoner deleted: ' . $event->getSummoner()->getName());
     }
 }

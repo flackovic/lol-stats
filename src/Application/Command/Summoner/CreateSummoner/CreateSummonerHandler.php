@@ -29,13 +29,13 @@ class CreateSummonerHandler
     public function __invoke(CreateSummonerCommand $command): void
     {
         $summoner = $this->summonerFactory->create(
-            $command->puuid,
-            $command->remoteId,
-            $command->accountId,
-            $command->name,
-            $command->level,
-            $command->profileIconId,
-            $command->revisionDate
+            $command->getPuuid(),
+            $command->getRemoteId(),
+            $command->getAccountId(),
+            $command->getName(),
+            $command->getLevel(),
+            $command->getProfileIconId(),
+            $command->getRevisionDate()
         );
 
         $this->summonerRepository->store($summoner);
