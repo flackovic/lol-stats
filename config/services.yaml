@@ -29,3 +29,6 @@ services:
 
     App\Application\Command\Summoner\CreateSummoner\CreateSummonerHandler:
         tags: [messenger.message_handler]
+
+    App\Application\Command\Summoner\DeleteSummoner\DeleteSummonerHandler:
+        tags: [messenger.message_handler]
