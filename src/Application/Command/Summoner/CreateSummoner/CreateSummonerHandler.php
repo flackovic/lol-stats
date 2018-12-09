@@ -8,18 +8,22 @@
 
 namespace App\Application\Command\Summoner\CreateSummoner;
 
+use App\Application\Event\Summoner\SummonerCreatedEvent;
 use App\Domain\Summoner\Factory\SummonerFactory;
 use App\Infrastructure\Summoner\Repository\SummonerRepository;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class CreateSummonerHandler
 {
     private $summonerFactory;
     private $summonerRepository;
+    private $dispatcher;
 
-    public function __construct(SummonerFactory $summonerFactory, SummonerRepository $summonerRepository)
+    public function __construct(SummonerFactory $summonerFactory, SummonerRepository $summonerRepository, EventDispatcherInterface $dispatcher)
     {
         $this->summonerFactory = $summonerFactory;
         $this->summonerRepository = $summonerRepository;
+        $this->dispatcher = $dispatcher;
     }
 
     public function __invoke(CreateSummonerCommand $command): void
@@ -34,7 +38,7 @@ class CreateSummonerHandler
             $command->revisionDate
         );
 
-        dd($summoner);
+        $this->dispatcher->dispatch(SummonerCreatedEvent::NAME, new SummonerCreatedEvent($summoner));
 
         //$this->summonerRepository->store($summoner);
     }
