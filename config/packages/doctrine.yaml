@@ -24,5 +24,5 @@ doctrine:
             Summoner:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/Domain/Summoner/Model'
-                prefix: 'App\Entity\Domain\Model'
+                dir: '%kernel.project_dir%/src/Domain/Summoner/'
+                prefix: 'App\Domain\Summoner'

@@ -2,7 +2,7 @@
 
 namespace App\Infrastructure\Summoner\Repository;
 
-use App\Domain\Summoner\Model\Summoner;
+use App\Domain\Summoner\Summoner;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Summoner\Model;
+namespace App\Domain\Summoner;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -51,14 +51,23 @@ class Summoner
      */
     private $revisionDate;
 
-    public static function fromJson(string $summonerData): Summoner
+    public function __construct(
+        string $puuid,
+        string $remoteId,
+        int $accountId,
+        string $name,
+        int $level,
+        int $profileIconId,
+        int $revisionDate
+    )
     {
-        $summonerObject = json_decode($summonerData);
-
-        $summoner = new self;
-        $summoner->setPuuid($summonerObject->puuid);
-
-        return $summoner;
+        $this->puuid = $puuid;
+        $this->remoteId = $remoteId;
+        $this->accountId = $accountId;
+        $this->name = $name;
+        $this->level = $level;
+        $this->profileIconId = $profileIconId;
+        $this->revisionDate = $revisionDate;
     }
 
     public function getId(): ?int
