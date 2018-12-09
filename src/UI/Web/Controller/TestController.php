@@ -2,7 +2,6 @@
 
 namespace App\UI\Web\Controller;
 
-
 use App\Application\Command\Summoner\CreateSummoner\CreateSummonerCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -15,7 +14,6 @@ class TestController extends AbstractController
      */
     public function index(MessageBusInterface $bus)
     {
-
         $command = new CreateSummonerCommand(
             '_PSLqFcfPjjonQrGHh3umDIbh68JFWgWo4o4RRhF2swRh6LC-9htVNKDddLIzy2cg41HfSwiyBRwHA',
             'Fdd80NTM4XkZwcaOuNYFTwdeQrrIlMcv9GyG024uFATBV5U',
@@ -27,7 +25,6 @@ class TestController extends AbstractController
         );
 
         $bus->dispatch($command);
-
 
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',

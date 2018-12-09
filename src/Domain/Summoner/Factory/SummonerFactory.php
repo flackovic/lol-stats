@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: Altz
  * Date: 09/12/2018
- * Time: 16:13
+ * Time: 16:13.
  */
 
 namespace App\Domain\Summoner\Factory;
-
 
 use App\Domain\Summoner\Summoner;
 
@@ -21,8 +20,7 @@ class SummonerFactory
         int $level,
         int $profileIconId,
         int $revisionDate
-    ): Summoner
-    {
+    ): Summoner {
         return new Summoner($puuid,
             $remoteId,
             $accountId,

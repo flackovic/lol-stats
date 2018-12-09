@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Altz
  * Date: 09/12/2018
- * Time: 19:03
+ * Time: 19:03.
  */
 
 namespace App\Domain\Event\Summoner;

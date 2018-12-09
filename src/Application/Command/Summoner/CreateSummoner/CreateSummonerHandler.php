@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Altz
  * Date: 09/12/2018
- * Time: 16:07
+ * Time: 16:07.
  */
 
 namespace App\Application\Command\Summoner\CreateSummoner;

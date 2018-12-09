@@ -29,5 +29,4 @@ class SummonerRepository extends ServiceEntityRepository
         $this->em->persist($summoner);
         $this->em->flush();
     }
-
 }

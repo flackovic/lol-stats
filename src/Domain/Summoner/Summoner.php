@@ -59,8 +59,7 @@ class Summoner
         int $level,
         int $profileIconId,
         int $revisionDate
-    )
-    {
+    ) {
         $this->puuid = $puuid;
         $this->remoteId = $remoteId;
         $this->accountId = $accountId;
@@ -158,6 +157,4 @@ class Summoner
 
         return $this;
     }
-
-
 }
