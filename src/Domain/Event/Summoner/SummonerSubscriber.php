@@ -6,7 +6,7 @@
  * Time: 19:03
  */
 
-namespace App\Application\Event\Summoner;
+namespace App\Domain\Event\Summoner;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 

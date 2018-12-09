@@ -8,7 +8,7 @@
 
 namespace App\Application\Command\Summoner\CreateSummoner;
 
-use App\Application\Event\Summoner\SummonerCreatedEvent;
+use App\Domain\Event\Summoner\SummonerCreatedEvent;
 use App\Domain\Summoner\Factory\SummonerFactory;
 use App\Infrastructure\Summoner\Repository\SummonerRepository;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
