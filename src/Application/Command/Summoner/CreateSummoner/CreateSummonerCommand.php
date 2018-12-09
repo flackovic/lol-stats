@@ -10,19 +10,19 @@ namespace App\Application\Command\Summoner\CreateSummoner;
 
 class CreateSummonerCommand
 {
-    public $puuid;
+    private $puuid;
 
-    public $remoteId;
+    private $remoteId;
 
-    public $accountId;
+    private $accountId;
 
-    public $name;
+    private $name;
 
-    public $level;
+    private $level;
 
-    public $profileIconId;
+    private $profileIconId;
 
-    public $revisionDate;
+    private $revisionDate;
 
     public function __construct(
         string $puuid,
@@ -40,5 +40,40 @@ class CreateSummonerCommand
         $this->level = $level;
         $this->profileIconId = $profileIconId;
         $this->revisionDate = $revisionDate;
+    }
+
+    public function getPuuid(): string
+    {
+        return $this->puuid;
+    }
+
+    public function getRemoteId(): string
+    {
+        return $this->remoteId;
+    }
+
+    public function getAccountId(): string
+    {
+        return $this->accountId;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getLevel(): int
+    {
+        return $this->level;
+    }
+
+    public function getProfileIconId(): int
+    {
+        return $this->profileIconId;
+    }
+
+    public function getRevisionDate(): int
+    {
+        return $this->revisionDate;
     }
 }
