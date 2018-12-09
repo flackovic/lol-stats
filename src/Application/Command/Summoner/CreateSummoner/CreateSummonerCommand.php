@@ -28,7 +28,7 @@ class CreateSummonerCommand
     public function __construct(
         string $puuid,
         string $remoteId,
-        int $accountId,
+        string $accountId,
         string $name,
         int $level,
         int $profileIconId,

@@ -27,7 +27,7 @@ class Summoner
     private $remoteId;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $accountId;
 
@@ -54,7 +54,7 @@ class Summoner
     public function __construct(
         string $puuid,
         string $remoteId,
-        int $accountId,
+        string $accountId,
         string $name,
         int $level,
         int $profileIconId,
@@ -99,12 +99,12 @@ class Summoner
         return $this;
     }
 
-    public function getAccountId(): ?int
+    public function getAccountId(): ?string
     {
         return $this->accountId;
     }
 
-    public function setAccountId(int $accountId): self
+    public function setAccountId(string $accountId): self
     {
         $this->accountId = $accountId;
 

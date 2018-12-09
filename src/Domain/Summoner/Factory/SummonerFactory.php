@@ -16,7 +16,7 @@ class SummonerFactory
     public function create(
         string $puuid,
         string $remoteId,
-        int $accountId,
+        string $accountId,
         string $name,
         int $level,
         int $profileIconId,

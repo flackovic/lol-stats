@@ -16,15 +16,17 @@ class TestController extends AbstractController
     public function index(MessageBusInterface $bus)
     {
 
-        $bus->dispatch(new CreateSummonerCommand(
-            'asdasd',
-            'asdasd',
-            131312,
-            'asdasd',
-            123,
-            123,
-            123
-        ));
+        $command = new CreateSummonerCommand(
+            '_PSLqFcfPjjonQrGHh3umDIbh68JFWgWo4o4RRhF2swRh6LC-9htVNKDddLIzy2cg41HfSwiyBRwHA',
+            'Fdd80NTM4XkZwcaOuNYFTwdeQrrIlMcv9GyG024uFATBV5U',
+            '9WlrEBP3qec2NoL9VXGeRfSQYNA6D2a38TXEcI8CxV_t4_5',
+            'TestSummoner',
+            84,
+            3556,
+            1544046420000
+        );
+
+        $bus->dispatch($command);
 
 
         return $this->render('test/index.html.twig', [
