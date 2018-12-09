@@ -47,7 +47,7 @@ class Summoner
     private $profileIconId;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="bigint", nullable=true)
      */
     private $revisionDate;
 
