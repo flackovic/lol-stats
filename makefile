@@ -1,5 +1,5 @@
 .PHONY: cs-fix
-cs: ## executes php cs fixer
+cs-fix: ## executes php cs fixer
 		./vendor/bin/php-cs-fixer --no-interaction --diff -v fix
 
 .PHONY: cs-check
