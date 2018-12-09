@@ -4,6 +4,7 @@ namespace App\Infrastructure\Summoner\Repository;
 
 use App\Domain\Summoner\Summoner;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -14,37 +15,19 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class SummonerRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    private $em;
+
+    public function __construct(RegistryInterface $registry, EntityManagerInterface $em)
     {
         parent::__construct($registry, Summoner::class);
+
+        $this->em = $em;
     }
 
-    // /**
-    //  * @return Summoner[] Returns an array of Summoner objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function store(Summoner $summoner)
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $this->em->persist($summoner);
+        $this->em->flush();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Summoner
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

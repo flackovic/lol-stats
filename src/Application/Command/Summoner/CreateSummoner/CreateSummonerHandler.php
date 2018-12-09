@@ -38,8 +38,8 @@ class CreateSummonerHandler
             $command->revisionDate
         );
 
-        $this->dispatcher->dispatch(SummonerCreatedEvent::NAME, new SummonerCreatedEvent($summoner));
+        $this->summonerRepository->store($summoner);
 
-        //$this->summonerRepository->store($summoner);
+        $this->dispatcher->dispatch(SummonerCreatedEvent::NAME, new SummonerCreatedEvent($summoner));
     }
 }
