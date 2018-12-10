@@ -1,0 +1,1 @@
+[![CircleCI](https://circleci.com/gh/flackovic/lol-stats/tree/master.svg?style=svg)](https://circleci.com/gh/flackovic/lol-stats/tree/master)
