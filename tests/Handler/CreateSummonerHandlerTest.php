@@ -13,13 +13,10 @@ use App\Application\Command\Summoner\CreateSummoner\CreateSummonerCommand;
 use App\Application\Command\Summoner\CreateSummoner\CreateSummonerHandler;
 use App\Domain\Summoner\Factory\SummonerFactory;
 use App\Infrastructure\Summoner\Repository\SummonerRepository;
-use Doctrine\Common\DataFixtures\Purger\ORMPurger;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use App\Tests\DatabaseAwareTestCase;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class CreateSummonerHandlerTest extends KernelTestCase
+class CreateSummonerHandlerTest extends DatabaseAwareTestCase
 {
 
     /** @var SummonerFactory */
@@ -31,7 +28,7 @@ class CreateSummonerHandlerTest extends KernelTestCase
 
     public function setUp()
     {
-        self::bootKernel();
+        parent::setUp();
 
         $this->summonerFactory = self::$container->get(SummonerFactory::class);
 
@@ -65,16 +62,5 @@ class CreateSummonerHandlerTest extends KernelTestCase
         $summoners = $this->summonerRepository->findAll();
 
         $this->assertCount(1, $summoners);
-    }
-
-    private function truncateEntities()
-    {
-        $purger = new ORMPurger($this->getEntityManager());
-        $purger->purge();
-    }
-
-    private function getEntityManager()
-    {
-        return self::$container->get(EntityManagerInterface::class);
     }
 }
