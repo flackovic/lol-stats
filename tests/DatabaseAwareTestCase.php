@@ -15,7 +15,6 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class DatabaseAwareTestCase extends KernelTestCase
 {
-
     private $entityManager;
 
     public function setUp()

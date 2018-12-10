@@ -18,7 +18,6 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class CreateSummonerHandlerTest extends DatabaseAwareTestCase
 {
-
     /** @var SummonerFactory */
     private $summonerFactory;
     /** @var SummonerRepository */
@@ -31,9 +30,7 @@ class CreateSummonerHandlerTest extends DatabaseAwareTestCase
         parent::setUp();
 
         $this->summonerFactory = self::$container->get(SummonerFactory::class);
-
         $this->summonerRepository = self::$container->get(SummonerRepository::class);
-
         $this->eventDispatcherMock = $this->createMock(EventDispatcherInterface::class);
 
         $this->truncateEntities();
