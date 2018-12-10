@@ -3,6 +3,9 @@
 namespace App\UI\Web\Controller;
 
 use App\Application\Command\Summoner\CreateSummoner\CreateSummonerCommand;
+use App\Application\Command\Summoner\DeleteSummoner\DeleteSummonerCommand;
+use App\Infrastructure\Summoner\Repository\SummonerRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,5 +32,19 @@ class TestController extends AbstractController
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',
         ]);
+    }
+
+    /**
+     * @Route("/test-delete", name="test-delete")
+     */
+    public function testDelete(MessageBusInterface $bus, SummonerRepository $summonerRepository)
+    {
+        $summoner = $summonerRepository->find(14);
+        $command = new DeleteSummonerCommand(
+            $summoner
+        );
+
+        $bus->dispatch($command);
+
     }
 }
