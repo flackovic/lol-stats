@@ -43,7 +43,7 @@ class SummonerFixture extends Fixture
                 $summonerDatum['name'],
                 $summonerDatum['level'],
                 $summonerDatum['profileIconId'],
-                $summonerDatum['revisionDate'],
+                $summonerDatum['revisionDate']
             );
             $manager->persist($summoner);
         }
