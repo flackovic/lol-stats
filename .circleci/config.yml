@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-    - image: circleci/php:7.1-cli
+    - image: circleci/php:7.2-cli
 
     working_directory: ~/repo
 
@@ -25,5 +25,10 @@ jobs:
 
     # run tests!
     - run:
-        name: Tests
+        name: Create schema
+        command: php bin/console doctrine:schema:create --env=test
+
+    # run tests!
+    - run:
+        name: Run tests
         command: php bin/phpunit
