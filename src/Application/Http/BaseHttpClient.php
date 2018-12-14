@@ -22,16 +22,21 @@ abstract class BaseHttpClient
 
     public function getRequest(string $path, $params = [])
     {
-        $response = $this->client->get(
-            $this->pathToUrl($path, $params)
-        )->getBody()->getContents();
+        $response = $this->client
+            ->get($this->pathToUrl($path, $params))
+            ->getBody()
+            ->getContents();
 
         return json_decode($response);
     }
 
     public function pathToUrl(string $path, array $params = []): string
     {
-        return sprintf('%s%s', $this->getBaseUrl(), $this->replaceInPath($path, $params));
+        return sprintf(
+            '%s%s',
+            $this->getBaseUrl(),
+            $this->replaceInPath($path, $params)
+        );
     }
 
     public function replaceInPath(string $path, array $params): string
