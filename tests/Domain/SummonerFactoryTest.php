@@ -49,43 +49,31 @@ class SummonerFactoryTest extends TestCase
 
     public function testItWillSetCorrectRemoteId()
     {
-        $this->assertSame(
-            'Fdd80NTM4XkZwcaOuNYFTwdeQrrIlMcv9GyG024uFATBV5U',
-            $this->summoner->getRemoteId());
+        $this->assertSame('Fdd80NTM4XkZwcaOuNYFTwdeQrrIlMcv9GyG024uFATBV5U', $this->summoner->getRemoteId());
     }
 
     public function testItWillSetCorrectAccountId()
     {
-        $this->assertSame(
-            '9WlrEBP3qec2NoL9VXGeRfSQYNA6D2a38TXEcI8CxV_t4_5',
-            $this->summoner->getAccountId());
+        $this->assertSame('9WlrEBP3qec2NoL9VXGeRfSQYNA6D2a38TXEcI8CxV_t4_5', $this->summoner->getAccountId());
     }
 
     public function testItWillSetCorrectName()
     {
-        $this->assertSame(
-            'AnneDL',
-            $this->summoner->getName());
+        $this->assertSame('AnneDL', $this->summoner->getName());
     }
 
     public function testItWillSetCorrectLevel()
     {
-        $this->assertSame(
-            827,
-            $this->summoner->getLevel());
+        $this->assertSame(827, $this->summoner->getLevel());
     }
 
     public function testItWillSetCorrectProfileIconId()
     {
-        $this->assertSame(
-            3556,
-            $this->summoner->getProfileIconId());
+        $this->assertSame(3556, $this->summoner->getProfileIconId());
     }
 
     public function testItWillSetCorrectRevisionDate()
     {
-        $this->assertSame(
-            1544046420000,
-            $this->summoner->getRevisionDate());
+        $this->assertSame(1544046420000, $this->summoner->getRevisionDate());
     }
 }
