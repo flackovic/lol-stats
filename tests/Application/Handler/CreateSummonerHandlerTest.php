@@ -6,7 +6,7 @@
  * Time: 20:45
  */
 
-namespace App\Tests\Handler;
+namespace App\Tests\Application\Handler;
 
 
 use App\Application\Command\Summoner\CreateSummoner\CreateSummonerCommand;
